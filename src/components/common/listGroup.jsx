@@ -1,6 +1,12 @@
 import React from "react";
 const ListGroup = props => {
-	const { items, value, text, onItemSelect, selectedGenre } = props;
+	const {
+		items,
+		value,
+		text,
+		onItemSelect,
+		selectedGenre,
+	} = props;
 	return (
 		<ul className="list-group">
 			{items.map(item => (
@@ -9,18 +15,22 @@ const ListGroup = props => {
 					onClick={() => onItemSelect(item)}
 					className={
 						item === selectedGenre
-							? "list-group-item active"
-							: "list-group-item  "
+							? "list-group-item d-flex justify-content-between align-items-center active"
+							: "list-group-item d-flex justify-content-between align-items-center  "
 					}
 				>
 					{item[text]}
+					 {/* <span class="badge badge-primary badge-pill">
+						{filterdMovies}
+					</span>  */}
 				</li>
 			))}
 		</ul>
 	);
 };
-ListGroup.defaultProps  = {
-	valu: "_id",
+ListGroup.defaultProps = {
+	value: "_id",
 	text: "name",
+	count:"count"
 };
 export default ListGroup;
